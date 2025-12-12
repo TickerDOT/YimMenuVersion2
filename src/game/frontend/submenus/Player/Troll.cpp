@@ -21,9 +21,18 @@ namespace YimMenu::Submenus
 
 		vehicle->AddItem(std::make_shared<PlayerCommandItem>("deleteveh"_J));
 
+		auto force = std::make_shared<Group>("Magnet/Forcefield");
+		force->AddItem(std::make_shared<PlayerCommandItem>("magnet"_J));
+		force->AddItem(std::make_shared<FloatCommandItem>("magnetradius"_J, std::nullopt, false));
+		force->AddItem(std::make_shared<FloatCommandItem>("magnetmagnitude"_J, std::nullopt, false));
+		force->AddItem(std::make_shared<PlayerCommandItem>("forcefield"_J));
+		force->AddItem(std::make_shared<FloatCommandItem>("forcefieldradius"_J, std::nullopt, false));
+		force->AddItem(std::make_shared<FloatCommandItem>("forcefieldmagnitude"_J, std::nullopt, false));
+
 		menu->AddItem(general);
 		menu->AddItem(bounty);
 		menu->AddItem(vehicle);
+		menu->AddItem(force);
 
 		return menu;
 	}
