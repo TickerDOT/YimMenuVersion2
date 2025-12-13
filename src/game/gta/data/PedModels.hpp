@@ -1100,5 +1100,17 @@ namespace YimMenu
 	    "u_m_y_tattoo_01",
 	    "u_m_y_ushi",
 	    "u_m_y_zombie_01",
+        "CSB_Avi_04",
+        "IG_AmandaTownley_02",
+        "IG_Avi_04",
+        "CS_AmandaTownley_02",
+        "A_C_Cat_02",
+        "IG_FIBLeader_01",
+        "G_M_M_KnoWay_01",
+        "IG_Faber_02",
+        "IG_ValenCheat",
+        "CSB_Faber_02",
+        "P_Michael_02",
+        "S_M_M_HighSec_06",
 	});
 }
