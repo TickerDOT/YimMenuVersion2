@@ -42,7 +42,7 @@ namespace YimMenu::Submenus
 		auto clearWanted = std::make_shared<Group>("", 1);
 		clearWanted->AddItem(std::make_shared<ConditionalItem>("neverwanted"_J, std::make_shared<CommandItem>("clearwanted"_J), true));
 		clearWanted->AddItem(std::make_shared<BoolCommandItem>("neverwanted"_J));
-		clearWanted->AddItem(std::make_shared<ConditionalItem>("neverwanted"_J,std::make_shared<BoolCommandItem>("alwayswanted"_J),true))
+		clearWanted->AddItem(std::make_shared<ConditionalItem>("neverwanted"_J,std::make_shared<BoolCommandItem>("alwayswanted"_J),true));
 		auto setWanted = std::make_shared<Group>("", 1);
 		setWanted->AddItem(std::make_shared<IntCommandItem>("wantedslider"_J, "Level"));
 		setWanted->AddItem(std::make_shared<ConditionalItem>("freezewanted"_J, std::make_shared<CommandItem>("setwanted"_J), true));
