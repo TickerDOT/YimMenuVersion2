@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         compiler: [ MSVC, Clang ]
-    runs-on: [ self-hosted, Windows ]
+    runs-on: windows-latest
     name: Native Compilation
     steps:
       - uses: actions/checkout@v4
