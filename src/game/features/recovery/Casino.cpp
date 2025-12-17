@@ -19,6 +19,9 @@ namespace YimMenu::Features
 		std::set<int> slots_blacklist = {9, 21, 22, 86, 150};
 		//int slots_random_results_table = 2149;
 		//std::set<int> slots_blacklist = {9, 21, 22, 87, 152};
+		// old version
+		//int slots_random_results_table = 1348;
+		//std::set<int> slots_blacklist = {9, 21, 22, 87, 152};
 
 		virtual void OnTick() override
 		{
