@@ -17,6 +17,7 @@ namespace YimMenu::Submenus
 		auto unlocks = std::make_shared<Category>("Unlocks");
 		auto generalUnlocks = std::make_shared<Group>("General");
 		auto trophies = std::make_shared<Group>("Trophies");
+		auto skip = std::make_shared<Group>("Skipper");
 
 		auto generalGroup = std::make_shared<Group>("General");
 		auto businessGroup = std::make_shared<Group>("General");
@@ -24,9 +25,6 @@ namespace YimMenu::Submenus
 		//auto casinoWheel = std::make_shared<Group>("Lucky Wheel");
 		//auto casinoBlackJack = std::make_shared<Group>("Blackjack");
 		//auto casinoRoulette = std::make_shared<Group>("Roulette");
-
-
-
 
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("playallmissionssolo"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("unlockgtaplus"_J));
@@ -39,16 +37,19 @@ namespace YimMenu::Submenus
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("freechangeappearance"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("nochangeappearancecooldown"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("allowgenderchange"_J));
+		generalGroup->AddItem(std::make_shared<BoolCommandItem>("peddropcash"_J));
 
 		businessGroup->AddItem(std::make_shared<ListCommandItem>("businesssafe"_J));
 		businessGroup->AddItem(std::make_shared<CommandItem>("claimsafeearnings"_J));
 
 		casinoSlots->AddItem(std::make_shared<BoolCommandItem>("casinomanipulaterigslotmachines"_J));
-
-	
+		
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallcareerprogress"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockalltattoos"_J));
+		generalUnlocks->AddItem(std::make_shared<CommandItem>("BunkerUnlocks"_J));
 
+		skip->AddItem(std::make_shared<CommandItem>("SkipDrDreeContract"_J));
+		skip->AddItem(std::make_shared<CommandItem>("SkipJenetteTheMutette"_J));
 
 		trophies->AddItem(std::make_shared<CommandItem>("unlockallmansiontrophies"_J));
 
@@ -57,9 +58,7 @@ namespace YimMenu::Submenus
 		casino->AddItem(casinoSlots);
 		unlocks->AddItem(generalUnlocks);
 		unlocks->AddItem(trophies);
-
-
-
+		unlocks->AddItem(skip);
 
 		AddCategory(std::move(main));
 		AddCategory(std::move(businesses));
