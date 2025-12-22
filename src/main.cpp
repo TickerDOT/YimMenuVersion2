@@ -45,6 +45,7 @@ namespace YimMenu
 		FileMgr::Init(documents);
 
 		LogHelper::Init("YimMenuV2", FileMgr::GetProjectFile("./cout.log"));
+
 		LOGF(INFO, "Welcome to YimMenuV2! Build date: {} at {}", __DATE__, __TIME__);
 
 		g_HotkeySystem.RegisterCommands();
@@ -96,7 +97,7 @@ namespace YimMenu
 		Notifications::Show("YimMenuV2", "Loaded succesfully", NotificationType::Success);
 
 		if (InWine().value_or(false))
-		    LOG(INFO) << "Running in Wine!";
+			LOG(INFO) << "Running in Wine!";
 
 		while (g_Running)
 		{
