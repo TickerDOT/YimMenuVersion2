@@ -27,6 +27,6 @@ namespace YimMenu::Features
 	static BunkerUnlocks _BunkerUnlocks{
 	    "BunkerUnlocks",
 	    "Bunker Unlocks",
-	    "Bunkerunlocks"};
+	    "Bunker Unlocks"};
 
 }

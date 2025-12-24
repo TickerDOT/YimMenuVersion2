@@ -47,7 +47,7 @@ namespace YimMenu::Submenus
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallcareerprogress"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockalltattoos"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("BunkerUnlocks"_J));
-		generalUnlocks->AddItem(std::make_shared<CommandItem>("ulockallAwards"_J));
+		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallAwards"_J));
 
 		skip->AddItem(std::make_shared<CommandItem>("SkipDrDreeContract"_J));
 		skip->AddItem(std::make_shared<CommandItem>("SkipJenetteTheMutette"_J));
