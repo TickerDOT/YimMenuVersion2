@@ -24,6 +24,6 @@ namespace YimMenu::Features
 	static SkipJenetteTheMutette _SkipJenetteTheMutette{
 	    "SkipJenetteTheMutette",
 	    "Skip Jenette The Mutette",
-	    "Skip JenetteTheMutette"};
+	    "Skip Jenette The Mutette"};
 
 }
