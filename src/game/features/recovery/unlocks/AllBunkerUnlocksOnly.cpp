@@ -12,10 +12,10 @@ namespace YimMenu::Features
 		{
 			if (*Pointers.IsSessionStarted)
 			{
-				Stats::SetPackedBool(15381, 15382);
-				Stats::SetPackedBool(15428, 15439);
-				Stats::SetPackedBool(15447, 15474);
-				Stats::SetPackedBool(15491, 15499);
+				Stats::SetPackedBool(15381, 15382, 1);
+				Stats::SetPackedBool(15428, 15439, 1);
+				Stats::SetPackedBool(15447, 15474, 1);
+				Stats::SetPackedBool(15491, 15499, 1);
 				STATS::STAT_SAVE(0, 0, 3, 0);
 			}
 			else
@@ -30,3 +30,4 @@ namespace YimMenu::Features
 	    "Bunker Unlocks"};
 
 }
+
