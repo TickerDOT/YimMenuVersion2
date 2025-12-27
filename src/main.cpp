@@ -37,6 +37,7 @@ namespace YimMenu
 		std::filesystem::create_directories(root);
 		std::filesystem::create_directories(root / "Themes");
 		std::filesystem::create_directories(root / "Scripts");
+		std::filesystem::create_directories(root / "Outfits");
 		return root;
 	}
 	DWORD Main(void*)
