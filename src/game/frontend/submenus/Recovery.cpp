@@ -33,6 +33,8 @@ namespace YimMenu::Submenus
 		generalGroup->AddItem(std::make_shared<CommandItem>("maxskills"_J));
 		generalGroup->AddItem(std::make_shared<IntCommandItem>("rpslider"_J, "Character Level"));
 		generalGroup->AddItem(std::make_shared<CommandItem>("applyrp"_J));
+		generalGroup->AddItem(std::make_shared<IntCommandItem>("lscarmeetrank"_J, "LS Car Meet Rank"));
+		generalGroup->AddItem(std::make_shared<CommandItem>("applylscarmeetrank"_J));
 
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("freechangeappearance"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("nochangeappearancecooldown"_J));
