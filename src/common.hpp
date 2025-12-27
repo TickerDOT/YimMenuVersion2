@@ -27,7 +27,7 @@ using namespace al;
 #include "core/logger/LogHelper.hpp"
 
 #undef Yield
-
+using json = nlohmann::json;
 namespace YimMenu
 {
 	using namespace std::chrono_literals;
