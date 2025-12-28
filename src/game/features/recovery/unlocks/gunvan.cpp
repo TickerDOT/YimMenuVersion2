@@ -4,6 +4,7 @@
 #include "game/backend/Tunables.hpp"
 namespace YimMenu::Features
 {
+//Credit https://github.com/lonelybud/YimMenuV2
 	static std::vector<std::pair<int, const char*>> g_GunVanSlotList;
 	static std::vector<std::pair<int, const char*>> g_GunVanWeaponList;
 	inline constexpr auto allowedGunVanWeapons = std::to_array({"WEAPON_KNIFE",
