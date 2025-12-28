@@ -1,7 +1,9 @@
 #include "theme.hpp"
+#include "core/frontend/manager/UIManager.hpp"
 
 namespace YimMenu
 {
+
 	bool DrawColorWheel(const char* id, ImVec4& color, float radius = 90.f)
 	{
 		ImGuiWindow* window = ImGui::GetCurrentWindow();
@@ -59,7 +61,48 @@ namespace YimMenu
 			ImGui::ColorConvertHSVtoRGB(h, s, v, color.x, color.y, color.z);
 		return changed;
 	}
+	bool ColorWheelPicker_UIM(const char* label, ImVec4& color)
+	{
+		bool changed = false;
+		ImGui::PushID(label);
+		ImGui::TextUnformatted(label);
+		ImGui::SameLine(200);
+		if (ImGui::ColorButton(
+		        "##preview",
+		        color,
+		        ImGuiColorEditFlags_NoTooltip,
+		        ImVec2(28, 14)))
+		{
+			ImGui::OpenPopup("##wheel_popup");
+		}
+		if (ImGui::BeginPopup("##wheel_popup",
+		        ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse))
+		{
+			ImGui::TextUnformatted(label);
+			ImGui::Separator();
+			ImGui::Spacing();
+			float radius = 70.f;
+			float wheel_w = radius * 2.f;
+			float avail = ImGui::GetContentRegionAvail().x;
+			float pad = (avail > wheel_w) ? (avail - wheel_w) * 0.5f : 0.f;
+			if (pad > 0.f)
+				ImGui::SetCursorPosX(ImGui::GetCursorPosX() + pad);
+			changed |= DrawColorWheel("##wheel", color, radius);
+			ImGui::Spacing();
+			ImGui::SliderFloat("R", &color.x, 0.f, 1.f);
+			ImGui::SliderFloat("G", &color.y, 0.f, 1.f);
+			ImGui::SliderFloat("B", &color.z, 0.f, 1.f);
+			ImGui::SliderFloat("A", &color.w, 0.f, 1.f);
+			ImGui::Spacing();
+			ImGui::Separator();
+			if (ImGui::Button("Close"))
+				ImGui::CloseCurrentPopup();
 
+			ImGui::EndPopup();
+		}
+		ImGui::PopID();
+		return changed;
+	}
 
 	static std::filesystem::path GetThemesPath()
 	{
@@ -71,6 +114,18 @@ namespace YimMenu
 		path /= "Themes";
 		std::filesystem::create_directories(path);
 		return path;
+	}
+	static void WriteUIColor(std::ofstream& out, const char* name, const ImVec4& c, bool comma = true)
+	{
+		out << "    \"" << name << "\": ["
+		    << c.x << ", " << c.y << ", " << c.z << ", " << c.w << "]";
+		if (comma)
+			out << ",";
+		out << "\n";
+	}
+	static void ReadUIColor(ImVec4& c, const std::vector<float>& v, size_t& i)
+	{
+		c = {v[i++], v[i++], v[i++], v[i++]};
 	}
 	void SaveTheme(const std::filesystem::path& file)
 	{
@@ -101,7 +156,17 @@ namespace YimMenu
 				out << ",";
 			out << "\n";
 		}
-		out << "  ]\n";
+		out << "  ],\n";
+		out << "  \"ui_colors\": {\n";
+		WriteUIColor(out, "SidebarBg", SidebarBg);
+		WriteUIColor(out, "ItemHoveredBg", ItemHoveredBg);
+		WriteUIColor(out, "ItemActiveBg", ItemActiveBg);
+		WriteUIColor(out, "Accent", Accent);
+		WriteUIColor(out, "IconActive", IconActive);
+		WriteUIColor(out, "IconHovered", IconHovered);
+		WriteUIColor(out, "IconIdle", IconIdle, false);
+		out << "  }\n";
+
 		out << "}\n";
 	}
 	void LoadTheme(const std::filesystem::path& file)
@@ -110,8 +175,7 @@ namespace YimMenu
 		std::ifstream in(file);
 		if (!in.is_open())
 			return;
-		std::string data((std::istreambuf_iterator<char>(in)),
-		    std::istreambuf_iterator<char>());
+		std::string data((std::istreambuf_iterator<char>(in)),std::istreambuf_iterator<char>());
 		std::vector<float> values;
 		values.reserve(256);
 		const char* p = data.c_str();
@@ -130,12 +194,9 @@ namespace YimMenu
 			}
 			++p;
 		}
-		const size_t needed =
-		    1 + 6 + 8 + (ImGuiCol_COUNT * 4);
+		const size_t needed = 1 + 6 + 8 + (ImGuiCol_COUNT * 4);
 		if (values.size() < needed)
-		{
 			return;
-		}
 		size_t i = 0;
 		s.Alpha = values[i++];
 		s.WindowRounding = values[i++];
@@ -155,6 +216,16 @@ namespace YimMenu
 			    values[i++],
 			    values[i++],
 			    values[i++]};
+		}
+		if (i + (7 * 4) <= values.size())
+		{
+			ReadUIColor(SidebarBg, values, i);
+			ReadUIColor(ItemHoveredBg, values, i);
+			ReadUIColor(ItemActiveBg, values, i);
+			ReadUIColor(Accent, values, i);
+			ReadUIColor(IconActive, values, i);
+			ReadUIColor(IconHovered, values, i);
+			ReadUIColor(IconIdle, values, i);
 		}
 	}
 	static std::vector<std::filesystem::path> GetJsonThemes()
@@ -191,6 +262,17 @@ namespace YimMenu
 		ImGui::Separator();
 		if (ImGui::CollapsingHeader("Colors", ImGuiTreeNodeFlags_DefaultOpen))
 		{
+			if (ImGui::TreeNode("Icons"))
+			{
+				ColorWheelPicker_UIM("Sidebar BG", SidebarBg);
+				ColorWheelPicker_UIM("Accent", Accent);
+				ColorWheelPicker_UIM("Item Active", ItemActiveBg);
+				ColorWheelPicker_UIM("Item Hover", ItemHoveredBg);
+				ColorWheelPicker_UIM("Icon Idle", IconIdle);
+				ColorWheelPicker_UIM("Icon Hover", IconHovered);
+				ColorWheelPicker_UIM("Icon Active", IconActive);
+				ImGui::TreePop();
+			}
 			static ImGuiTextFilter filter;
 			filter.Draw("Filter colors");
 			ImGui::Spacing();
