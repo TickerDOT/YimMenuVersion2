@@ -11,6 +11,14 @@
 #include <core/frontend/manager/Category.hpp>
 #include <game/frontend/items/Items.hpp>
 
+//#include "core/backend/ScriptMgr.hpp"
+//#include "core/frontend/Notifications.hpp"
+#include "game/gta/VehicleModel.hpp"
+//#include "game/backend/Self.hpp"
+#include "game/gta/Natives.hpp"
+//#include "game/gta/Vehicle.hpp"
+#include "game/gta/data/VehicleValues.hpp"
+
 namespace YimMenu::Submenus
 {
 	static BoolCommand spawnInsideSavedVehicle{"spawninsidesavedveh", "Spawn Inside", "Spawn inside the vehicle."};
