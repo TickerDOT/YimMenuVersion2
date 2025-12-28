@@ -11,10 +11,6 @@
 #include <core/frontend/manager/Category.hpp>
 #include <game/frontend/items/Items.hpp>
 
-#include "game/gta/VehicleModel.hpp"
-#include "game/gta/Natives.hpp"
-#include "game/gta/data/VehicleValues.hpp"
-
 namespace YimMenu::Submenus
 {
 	static BoolCommand spawnInsideSavedVehicle{"spawninsidesavedveh", "Spawn Inside", "Spawn inside the vehicle."};
@@ -151,7 +147,7 @@ namespace YimMenu::Submenus
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 8.f);
 			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(14.f, 12.f));
 			ImGui::SetNextWindowSize(ImVec2(420.f, 0.f), ImGuiCond_Appearing);
-			if (ImGui::BeginPopupModal("##spawncarmodel2",nullptr,ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove))
+			if (ImGui::BeginPopupModal("##spawncarmodel2", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove))
 			{
 				ImGui::Text("Are you sure you want to spawn %s", file.c_str());
 				ImGui::Spacing();
@@ -178,7 +174,6 @@ namespace YimMenu::Submenus
 
 			ImGui::PopStyleVar(2);
 			ImGui::PopStyleColor();
-
 		}));
 
 		return persistCar;
