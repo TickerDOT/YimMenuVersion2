@@ -40,6 +40,7 @@ namespace YimMenu::Submenus
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("nochangeappearancecooldown"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("allowgenderchange"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("peddropcash"_J));
+		generalGroup->AddItem(std::make_shared<BoolCommandItem>("vehicledropcash"_J));
 
 		businessGroup->AddItem(std::make_shared<ListCommandItem>("businesssafe"_J));
 		businessGroup->AddItem(std::make_shared<CommandItem>("claimsafeearnings"_J));
@@ -64,16 +65,14 @@ namespace YimMenu::Submenus
 		gunvanGroup->AddItem(std::make_shared<ListCommandItem>("gunvanweapon"_J));
 		gunvanGroup->AddItem(std::make_shared<CommandItem>("setgunvanweapon"_J));
 
-
-		
-        main->AddItem(gunvanGroup);
+		main->AddItem(gunvanGroup);
 		main->AddItem(generalGroup);
 		businesses->AddItem(businessGroup);
 		casino->AddItem(casinoSlots);
 		unlocks->AddItem(generalUnlocks);
 		unlocks->AddItem(trophies);
 		unlocks->AddItem(skip);
-
+		
 		AddCategory(std::move(main));
 		AddCategory(std::move(businesses));
 		AddCategory(std::move(casino));
