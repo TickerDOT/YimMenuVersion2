@@ -56,6 +56,7 @@ namespace YimMenu::Submenus
 		casinoSlots->AddItem(std::make_shared<BoolCommandItem>("casinomanipulaterigslotmachines"_J));
 		
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallcareerprogress"_J));
+		generalUnlocks->AddItem(std::make_shared<CommandItem>("resetcareerprogress"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockalltattoos"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("BunkerUnlocks"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlockallAwards"_J));
