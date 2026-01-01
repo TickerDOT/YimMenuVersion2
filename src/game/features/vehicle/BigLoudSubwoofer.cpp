@@ -2,6 +2,7 @@
 #include "game/backend/Self.hpp"
 #include "game/gta/Natives.hpp"
 #include "game/gta/Pools.hpp"
+#include <unordered_set>
 
 namespace YimMenu::Features
 {
