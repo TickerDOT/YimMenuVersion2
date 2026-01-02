@@ -24,7 +24,7 @@ namespace YimMenu::Features
 			*ScriptGlobal(262145).At(37636).As<int*>() = 1; // LS Fire Department
 			*ScriptGlobal(262145).At(37637).As<int*>() = 1; // Forklift Operator
 			*ScriptGlobal(262145).At(37638).As<int*>() = 1; // Paper Route
-			*ScriptGlobal(262145).At(37639).As<int*>() = 1; // Lucky Clover Event*/
+			*ScriptGlobal(262145).At(37639).As<int*>() = 1; // Lucky Clover Event
 			}
 			else
 			{
