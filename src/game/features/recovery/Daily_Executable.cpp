@@ -4,7 +4,6 @@
 #include "game/gta/Stats.hpp"
 #include "game/pointers/Pointers.hpp"
 
-
 namespace YimMenu::Features
 {
 	class ClubPopularity : public Command
@@ -122,4 +121,3 @@ namespace YimMenu::Features
 	};
 	static SalvageYard _SalvageYard{"salvageyard", "Max Salvage Yard Reputation", "Max Salvage Yard Reputation"};
 }
-
