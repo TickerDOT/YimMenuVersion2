@@ -48,4 +48,3 @@ namespace YimMenu::Features
 	    "Reset Vehicle Sell Cooldown",
 	    "Resets the vehicle sell cooldown timer"};
 }
-
