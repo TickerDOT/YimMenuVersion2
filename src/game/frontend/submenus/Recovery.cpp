@@ -24,6 +24,7 @@ namespace YimMenu::Submenus
 		auto ceoGroup = std::make_shared<Group>("SecuroServ");
 		auto achievements = std::make_shared<Group>("Unlock Achievements");
 		auto cooldown = std::make_shared<Group>("Cooldown");
+		auto Safehouseinhills = std::make_shared<Group>(" Safehouse in the Hills");
 
 		auto generalGroup = std::make_shared<Group>("General");
 		auto gunvanGroup = std::make_shared<Group>("Gun Van");
@@ -94,7 +95,6 @@ namespace YimMenu::Submenus
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlock_paints"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlock_packed_bools"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("unlock_misc"_J));
-		generalUnlocks->AddItem(std::make_shared<CommandItem>("enable_hidden_liveries"_J));
 		generalUnlocks->AddItem(std::make_shared<CommandItem>("all_Collectibles"_J));
 
 		skip->AddItem(std::make_shared<CommandItem>("SkipDrDreeContract"_J));
@@ -117,6 +117,11 @@ namespace YimMenu::Submenus
 		Unreleased->AddItem(std::make_shared<CommandItem>("Unreleased_content"_J));
 		Unreleased->AddItem(std::make_shared<ListCommandItem>("luckyclover_location"_J));
 		Unreleased->AddItem(std::make_shared<CommandItem>("teleport_luckyclover"_J));
+
+		Safehouseinhills->AddItem(std::make_shared<CommandItem>("enable_hidden_liveries"_J));
+		Safehouseinhills->AddItem(std::make_shared<CommandItem>("enable_halloween_dlc"_J));
+		Safehouseinhills->AddItem(std::make_shared<CommandItem>("enable_independence_dlc"_J));
+		Safehouseinhills->AddItem(std::make_shared<CommandItem>("enable_christmas_dlc"_J));
 
 		missions->AddItem(std::make_shared<CommandItem>("alien_egg_mission"_J));
 
@@ -148,6 +153,7 @@ namespace YimMenu::Submenus
 		unlocks->AddItem(trophies);
 		unlocks->AddItem(skip);
 		unlocks->AddItem(Unreleased);
+		unlocks->AddItem(Safehouseinhills);
 
 		AddCategory(std::move(main));
 		AddCategory(std::move(businesses));
