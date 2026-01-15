@@ -29,4 +29,3 @@ namespace YimMenu::Features
 	    "Enable New Years Gifts",
 	    "Enables 2022 & 2023 New Years gift tunables"};
 }
-
