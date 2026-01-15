@@ -31,4 +31,3 @@ namespace YimMenu::Features
 	    "Enable Limited Edition Items",
 	    "Enable Limited Edition Items"};
 }
-
