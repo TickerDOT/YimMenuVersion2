@@ -49,6 +49,7 @@ namespace YimMenu
 		BaseHook::Add<Hooks::Matchmaking::MatchmakingUpdate>(new DetourHook("MatchmakingUpdate", Pointers.MatchmakingUpdate, Hooks::Matchmaking::MatchmakingUpdate));
 		BaseHook::Add<Hooks::Matchmaking::MatchmakingFindSessions>(new DetourHook("MatchmakingFindSessions", Pointers.MatchmakingFindSessions, Hooks::Matchmaking::MatchmakingFindSessions));
 		BaseHook::Add<Hooks::Matchmaking::MatchmakingFindSessionsResponse>(new DetourHook("MatchmakingFindSessionsResponse", Pointers.MatchmakingFindSessionsResponse, Hooks::Matchmaking::MatchmakingFindSessionsResponse));
+		
 		BaseHook::Add<Hooks::Misc::AssistedAimShouldReleaseEntity>(new DetourHook("AssistedAimShouldReleaseEntity", Pointers.AssistedAimShouldReleaseEntity, Hooks::Misc::AssistedAimShouldReleaseEntity));
 		BaseHook::Add<Hooks::Misc::GetLabelText>(new DetourHook("GetLabelText", Pointers.GetLabelText, Hooks::Misc::GetLabelText));
 		BaseHook::Add<Hooks::Misc::GetLabelTextInternal>(new DetourHook("GetLabelTextInternal", Pointers.GetLabelTextInternal, Hooks::Misc::GetLabelTextInternal));
@@ -90,3 +91,4 @@ namespace YimMenu
 		BaseHook::Hooks().clear();
 	}
 }
+
