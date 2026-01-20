@@ -32,7 +32,9 @@ namespace YimMenu
 {
 	using namespace std::chrono_literals;
 	using namespace std::string_view_literals;
-
+    inline uint16_t g_failed_sig_count{};
+    inline uint16_t g_found_sig_count{};
+    inline uint16_t g_total_sig_count{};
 	extern std::atomic<bool> g_Running;
 	extern HINSTANCE g_DllInstance;
 	extern HANDLE g_MainThread;
